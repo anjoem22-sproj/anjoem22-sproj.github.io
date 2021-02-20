@@ -18,7 +18,7 @@ var compares;
 function setup() {
   var cnv = createCanvas(800, 400);
   cnv.parent("simulation");
-  cnv.align("horizontal");
+  cnv.center("horizontal");
 
   colorMode(HSB);
   rectMode(CORNERS);
