@@ -15,7 +15,7 @@ var end_time;
 var score;
 
 function setup() {
-  cnv = createCanvas(800, 400);
+  let cnv = createCanvas(800, 400);
   colorMode(HSB)
   
   text_color = color(170,10,240)
