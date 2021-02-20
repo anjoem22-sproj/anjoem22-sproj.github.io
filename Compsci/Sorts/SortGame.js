@@ -7,6 +7,13 @@ var right_select = -1;
 var runes = [];
 var names = ["POW","CEN","FIG","JON","LOP","COR","RAG","FIN","GA.",".^.","SHU","FEI","404","ERR","BIT","314","SHA","CLA","THU","FOR","WHI","LET","RUE","FAL","SEE"]
 
+var made_comparison;
+var comparisons;
+var swaps;
+
+var end_time;
+var score;
+
 function setup() {
   createCanvas(800, 400);
   colorMode(HSB)
@@ -55,7 +62,7 @@ class Rune {
   }
   
   display() {
-    if (this.checkMouseCollision()) {
+    if (game_state == 1 & this.checkMouseCollision()) {
       fill(240);
     } else {
       fill(this.color);
@@ -63,10 +70,10 @@ class Rune {
   
     strokeWeight(3);
     
-    if (this.position == left_select) {
-      stroke(color(0,255,255));
-    } else if (this.position == right_select) {
-      stroke(color(150,255,255)); 
+    if (this.position == left_select & game_state == 1) {
+      stroke(color(150,255,255));
+    } else if (this.position == right_select & game_state == 1) {
+      stroke(color(0,255,255)); 
     } else {
       stroke(0)
     }
@@ -90,9 +97,14 @@ class Rune {
   }
   
   swap(other) {
-    let temp_position = this.position;
-    this.position = other.getPosition();
-    other.setPosition(temp_position);
+    let first_position = this.position;
+    let second_position = other.getPosition();
+    
+    this.position = second_position;
+    other.setPosition(first_position);
+    
+    runes[first_position] = runes[second_position];
+    runes[second_position] = this;
   }
 }
 
@@ -116,19 +128,29 @@ function load_main_menu() {
 
 
 function game_setup() {
+  let tempNames = []
+  for (let i = 0; i < names.length; i++) {
+    tempNames[i] = names[i];
+  }
+  
   for (let i = 0; i < 10; i++) {
-    runes[i] = new Rune(i,i,i+1,color(random(255),255,random(255)));
+    let rand_num = floor(random(tempNames.length));
+    let temp_name = tempNames[rand_num];
+    tempNames.splice(rand_num,1);
+    runes[i] = new Rune(i,i,temp_name,color(random(255),255,random(255)));
   }
   
   for (let i = 0; i < 100; i++) {
     let posA = floor(random(0,10));
     let posB = floor(random(0,10));
     runes[posA].swap(runes[posB]);
-    
-    let temp_rune = runes[posA];
-    runes[posA] = runes[posB];
-    runes[posB] = temp_rune;
   }
+  
+  swaps = 0;
+  comparisons = 0;
+  left_select = -1;
+  right_select = -1;
+  made_comparison = false;
 }
 
 function game_loop() {
@@ -136,23 +158,78 @@ function game_loop() {
     runes[i].display();
   }
   
+  
   fill(text_color)
   noStroke()
   textSize(20)
-  text("click to select/deselect, press s to swap, press spacebar to deselect all",0.5*width,30);
+  text("Swap is 'S', ENTER when finished",0.5*width,30);
+  
+  textAlign(LEFT)
+  text("Comparisons: " + comparisons,0,30);
+  text("Swaps: " + swaps,0,60);
+  textAlign(CENTER)
 
   if (left_select == -1 | right_select == -1) {
-    text("There is no winner",0.5*width,height - 30)
+    text("click on a rune to select/deselect, shift-click to make a second selection",0.5*width,height - 30)
   } else {
-    if (runes[left_select].compare(runes[right_select])) {
-      fill(color(0,255,255))
+    
+    if (!made_comparison) {
+       text("Wish to compare? Press C",0.5*width,height - 30)
+    }else if (runes[left_select].compare(runes[right_select])) {
+      fill(color(150,255,255))
       text("The winner is " + runes[left_select].getName(),0.5*width,height - 30)
     } else {
-      fill(color(150,255,255))
+      fill(color(0,255,255))
       text("The winner is " + runes[right_select].getName(),0.5*width,height - 30)
+    }
+    
+  }
+  
+}
+
+function end_loop() {
+  let time_dif = millis() - end_time;
+  
+  fill(text_color)
+  noStroke()
+  textSize(20)
+  textAlign(LEFT)
+  text("Comparisons: " + comparisons,0,30);
+  text("Swaps: " + swaps,0,60);
+  textAlign(CENTER)
+  
+  strokeWeight(2);
+  stroke(0)
+  
+  for (let i = 0; i < 10; i++) {
+    if (runes[i].getWeight() == i) {
+      fill(150,255,255)
+    } else {
+      fill(0,255,255)
+    }
+
+    if (time_dif < 1000) {
+      let offset = sin( HALF_PI * time_dif/1000 ) * 35;
+      text(""+(runes[i].getWeight() + 1),(width/10)*(i+0.5),height/2 + 5 - offset);
+    } else {
+      text(""+(runes[i].getWeight() + 1),(width/10)*(i+0.5),height/2 - 30)
+    }
+  } 
+  
+  if (time_dif >= 1000) {
+    fill(text_color)
+    noStroke()
+    
+    if (score == 10) {
+      text("You won! If you think you could do better, press ENTER" ,0.5*width,height - 100)
+    } else {
+      text("Hmm... You only got " + score + " runes correct. If you'd like to try again, press ENTER",0.5*width,height - 100)
     }
   }
   
+  for (let i = 0; i < 10; i++) {
+    runes[i].display();
+  }
 }
 
 function keyPressed() {
@@ -173,11 +250,36 @@ function keyPressed() {
     if (keyCode == 83) {
       if (!(left_select == -1 | right_select == -1)) {
         runes[left_select].swap(runes[right_select]);
-    
-        let temp_rune = runes[left_select];
-        runes[left_select] = runes[right_select];
-        runes[right_select] = temp_rune;
+        swaps++;
+        
+        let temp_select = left_select;
+        left_select = right_select;
+        right_select = temp_select;
       }
+    }
+    
+    if (keyCode == 67) {
+      if (!made_comparison & !(left_select == -1 | right_select == -1)) {
+        made_comparison = true;
+        comparisons++;
+      }
+    }
+    
+    if (keyCode == ENTER) {
+      game_state = 2;
+      end_time = millis();
+      
+      score = 0;
+      for (i = 0; i < 10; i++) {
+        if (runes[i].getWeight() == i) {
+          score++;
+        }
+      }
+    }
+    
+  } else if(game_state == 2) {
+    if (keyCode == ENTER) {
+      game_state = 0;
     }
   }
 }
@@ -190,16 +292,31 @@ function mousePressed() {
         selected = i;
       }
     }
+    
     if (selected == -1) {
       return;
-    } else if (selected == left_select) {
-      left_select = -1;
-    } else if (selected == right_select) {
-      right_select = -1;
-    } else if (left_select == -1) {
-      left_select = selected;
+    }
+    
+    made_comparison = false;
+    
+    if (keyIsDown(SHIFT)) {
+      if (selected == left_select) {
+        right_select = selected;
+        left_select = -1;
+      } else if (selected == right_select) {
+        right_select = -1;
+      } else {
+        right_select = selected;
+      }
     } else {
-      right_select = selected;
+      if (selected == right_select) {
+        left_select = selected;
+        right_select = -1;
+      } else if (selected == left_select) {
+        left_select = -1;
+      } else {
+        left_select = selected;
+      }
     }
   } 
 }
@@ -211,6 +328,8 @@ function draw() {
     load_main_menu();
   } else if (game_state == 1) {
     game_loop();
+  } else if (game_state == 2) {
+    end_loop();
   }
   
 }
