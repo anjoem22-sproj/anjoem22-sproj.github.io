@@ -18,9 +18,9 @@ function setup() {
   var cnv = createCanvas(800, 400);
   cnv.parent('game');
   cnv.center('horizontal');
-  colorMode(HSB)
+  colorMode(HSB);
   
-  text_color = color(170,10,240)
+  text_color = color(170,10,240);
   game_state = 0;
 }
 
