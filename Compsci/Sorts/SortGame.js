@@ -15,7 +15,7 @@ var end_time;
 var score;
 
 function setup() {
-  let cnv = createCanvas(800, 400);
+  var cnv = createCanvas(800, 400);
   cnv.parent('game');
   cnv.center('horizontal');
   colorMode(HSB)
