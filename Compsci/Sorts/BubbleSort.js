@@ -1,5 +1,4 @@
 var values = [];
-var TEXT_COLOR;
 var DELAY;
 var NUM_ELEMENTS;
 
@@ -22,9 +21,6 @@ function setup() {
 
   colorMode(HSB);
   rectMode(CORNERS);
-  
-  // default color for text
-  TEXT_COLOR = color(170,10,240);
   
   // time between decisions
   DELAY = 10;
