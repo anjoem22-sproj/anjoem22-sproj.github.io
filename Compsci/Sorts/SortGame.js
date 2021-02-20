@@ -15,11 +15,13 @@ var end_time;
 var score;
 
 function setup() {
-  createCanvas(800, 400);
+  cnv = createCanvas(800, 400);
   colorMode(HSB)
   
   text_color = color(170,10,240)
   game_state = 0;
+
+  cnv.center('horizontal')
 }
 
 class Rune {
