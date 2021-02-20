@@ -16,13 +16,12 @@ var score;
 
 function setup() {
   let cnv = createCanvas(800, 400);
+  cnv.parent('game');
+  cnv.center('horizontal');
   colorMode(HSB)
   
   text_color = color(170,10,240)
   game_state = 0;
-
-  cnv.center('horizontal');
-  cnv.parent('game');
 }
 
 class Rune {
