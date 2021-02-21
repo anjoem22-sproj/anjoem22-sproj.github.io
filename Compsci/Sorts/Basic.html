@@ -32,17 +32,21 @@
 
         </div>
 
-        <p> 
-            Bubble sort is by far one of the most simple sorting algorithms to be exposed to. The plan is simple, compare every element to its element to the right. 
-            If the element on the right is greater, do nothing. Otherwise they swap. Once all of the elements are compared, this process is repeated again. The name of 
-            this sort is bubble sort since this has the effect of bringing the greatest element to the top. This means the last element no longer needs to be checked. The final 
-            optimization that could be made is to end the sort if it finishes a complete pass without making any swaps.
-        </p>
+        <div class="explanation">
+            <p> 
+                Bubble sort is by far one of the most simple sorting algorithms to be exposed to. The plan is simple, compare every element to its element to the right. 
+                If the first element is greater, the two elements swap. Once all of the elements are compared, this process is repeated again. The name of 
+                this sort is bubble sort since this has the effect of bringing the greatest element to the end of the list. Since each pass through the array puts the greatest 
+                element to the end of the list, one less element needs to be checked each pass. The final optimization that could be made is to end the sort if it finishes a 
+                complete pass without making any swaps (since that means all elements are in order).
+            </p>
 
-        <p> 
-            As will be shown in the next segment, this is a truly inefficient algorithm, especially for bigger datasets. The benefit of this sort is that it is especially
-            to write and understand. Below will be an example of a psuedo-code implementation of this sort.
-        </p>
+            <p> 
+                This algorithm takes very little code and is easy to understand, but ultimately it is incredibly inefficient. The next page will talk about Big-O 
+                Notation, and using that system this algorithm has an average complexity of O(n^2). The psuedo-code listed below demonstrates a possible 
+                implementation of this algorithm.
+            </p>
+        </div>
 
         <pre>
             <code>
@@ -78,27 +82,71 @@
 
         <h1 style="text-align: center;"> Selection and Insertion Sort</h1>
 
-        <p> 
-        Selection Sort and Insertion Sort are the next two easiest sorting algorithms to understand. First, let's talk about Selection Sort. Selection sort creates a new array to be 
-        filled. A variable holds the value of the first unsorted element in an array. This value is compared to every other element in the unsorted array until the minimum value is 
-        found. This value is removed from the unsorted array and added to the end of the new array. This process repeats until there are no more elements in the unsorted array.
-        </p>
+        <div class="explanation">
+            <p> 
+            Selection Sort and Insertion Sort are the next two easiest sorting algorithms to understand. First, let's talk about Selection Sort. The sort starts by creating a 
+            variable which stores the first value in the unsorted array. This element is compared one by one with all other elements in the unsorted part of the array. If a smaller 
+            number is found, that value is stored in the variable. Once the entire array is searched, this minimum value is swapped with the first value in the unsorted array. This 
+            value is then considered sorted and ignored for the next pass in the sort. This process is repeated until all values are sorted.
+            </p>
 
-        <p>
-        Next let's talk about Insertion Sort. Like Selection Sort, we start with our unsorted array and create a new "sorted" array. The first element in the unsorted array is taken 
-        out and put in the sorted array. The next unsorted element is compared to all the elements in the sorted array until it is inserted into the correct position. 
-        This is repeated until all elements are removed from the unsorted array. If you are confused how this is different from Selection Sort, this sorting algorithm 
-        puts unsorted elements into the correct position of a sorted array while Selection Sort adds the smallest value to the end of a sorted array. A diagram will be provided 
-        below to demonstrate.
-        </p>
+            <p>
+            Summarized, this sort essentially finds the correct value for each position in the array and puts it there one by one.
+            </p>
+
+            <p>
+            Next let's talk about Insertion Sort. Insertion sort first considers the initial value in an array as sorted. The sort then looks at the first unsorted value in the 
+            array and compares it to the values in the sorted segment of the array. Once it finds the first value greater than the selected element, it pushes all values after this 
+            position one index forward and places the selected value into its correct place. Once all values in the unsorted array have been repositioned, this sort is completed.
+            </p>
+
+            <p>
+            Summarized, this sort essentially splits the array into a sorted and unsorted section and one by one puts the first unsorted element into the correct spot.
+            </p>
+
+            <p> 
+            These sorts are fairly similar in their methodology, so a diagram demonstrating how this sort performs will be shown below. Like BubbleSort, these sorts still 
+            are incredibly inefficient with an average time complexity of O(n^2). The next two sections will go more in detail about faster sorts for larger amounts of data.
+            </p>
+        </div>
 
         <img src="Demonstration.png" alt="Left shows selection where red numbers are swapped. Right shows insertion where green letters are sorted" style="margin-left: auto; margin-right: auto; display: block;">
 
-        <p> So far, all these algorithms are rather slow and ineffective. These two algorithms may be slightly faster than bubblesort, but they really aren't much better. </p>
-
         <h1 style="text-align: center;"> Quicksort and Mergesort</h1>
 
-        <p> TO BE WRITTEN </p>
+        <div class="explanation">
+            <p> 
+            After looking at the past sorting algorithms, the common issue is that they are really quite slow and inefficient. These two sorts utilize a different technique 
+            with the aim of efficiency. They utilize a "divide and conquer" method for their sorts. These algorithms break the unsorted data into smaller and smaller chunks that 
+            are more easy to sort. These sorting algorithms combine these smaller chunks together then uses the same method of sorting again. Ultimately this has the effect of minimizing 
+            comparisons in a dataset and thus improving efficiency. 
+            </p>
+        </div>
+
+        <div class="explanation">
+            <p> 
+            First, we should talk about quick sort.
+            </p>
+
+            <ol> 
+                <li> If there are no elements in this array, we are finished</li>
+                <li> We pick a "pivot" in the array. This could be the first, middle, final, or a random position in the array</li>
+                <li> All values are compared to this value. The smaller values go to the left of the pivot and greater values to the right</li>
+                <li> Repeat steps 1-3 for the segement of the array to the left of the pivot and the segment to the right</li>
+            </ol>
+
+            <p> 
+            Since this process repeats onto smaller and smaller segments of an array, this algorithm works rather well using recursion. If you are unaware about recursion, that is 
+            when an algorithm repeatedly calls itself to complete a task. There must be a base case for this algorithm or else it will continue forever, and for this sort that is when 
+            there are no elements in the segment of the array.
+            </p>
+        </div>
+
+        <div class="explanation">
+            <p> 
+            Next, we should talk about merge sort.
+            </p>
+        </div>
 
         <h1 style="text-align: center;"> Non-Comparison Based Sorts</h1>
 

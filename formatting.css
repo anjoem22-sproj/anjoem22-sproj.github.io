@@ -20,3 +20,20 @@ a {
 	display: block;
 	padding: 20px;
 }
+
+.explanation {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgb(7, 0, 75);
+	border: 3px solid rgb(255, 255, 255);
+	display:block;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.explanation p {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
