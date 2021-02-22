@@ -146,8 +146,29 @@
             <p> 
             Next, we should talk about merge sort.
             </p>
+
+            <ol> 
+                <li>If there is only one element in this array, we stop</li>
+                <li>We split the array into two seperate halves and run this algorithm on the new halves</li>
+                <li>A new array is created where we will recombine the two halves</li>
+                <li>The first value in both arrays is compared and the smaller value is moved to the end of the new array</li>
+                <li>The previous step is repeated until all elements in both halves are combined</li>               
+            </ol>
+
+            <p> 
+            Again, this algorithm utilizes recursion very effectively. While the steps in this process were written in one list, in reality there are two seperate processes. 
+            One process splits the array into small pieces and the other merges them back together. 
+            </p>
         </div>
 
+        <div class="explanation">
+            <p>
+            Both of these algorithms on average have a time complexity of O(n log n), which is significantly better than all of the aforementioned sorts. An important question then 
+            is which algorithm should be used for a given dataset? The answer to this question can differ based upon what data you are sorting. Quicksort at its worst can take as 
+            long as bubblesort in terms of time complexity. Mergesort, however, requires the use of extra memory which could be problematic if the device being used has limited space. 
+            In certain circumstances and in particular for large datasets, there are actually algorithms even faster than these two. Those will be covered in the next section.
+            </p>
+        </div>
         <h1 style="text-align: center;"> Non-Comparison Based Sorts</h1>
 
         <p> TO BE WRITTEN </p>

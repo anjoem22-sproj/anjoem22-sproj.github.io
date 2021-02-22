@@ -51,7 +51,7 @@ class Value {
   
   display() {
     if (this.isCompared | this.isSwapped) {
-      if ((millis() - this.lastChanged) >= DELAY | finished) {
+      if ((millis() - this.lastChanged) > DELAY | finished) {
         this.isCompared = false;
         this.isSwapped = false;
         this.lastChanged = -1;
