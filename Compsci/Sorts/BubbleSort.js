@@ -51,7 +51,7 @@ class Value {
   
   display() {
     if (this.isCompared | this.isSwapped) {
-      if ((millis() - this.lastChanged) > DELAY | finished) {
+      if ((millis() - this.lastChanged) > DELAY + 5 | finished) {
         this.isCompared = false;
         this.isSwapped = false;
         this.lastChanged = -1;
@@ -180,7 +180,7 @@ function draw() {
         current_index = 0;
         end_point = 1;
         shuffle_swaps++
-        DELAY = 1;
+        DELAY = 5;
       }
 
       sortStep();
