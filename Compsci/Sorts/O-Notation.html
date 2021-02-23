@@ -25,10 +25,44 @@
         <a href="../../index.html">HOME</a>
         <h1 style="text-align: center;"> Big O Notation</h1>
 
-        <img src="WoahBig.png" alt="Oh Goodness..." style="margin-left: auto; margin-right: auto; display: block;">
+        <img src="WoahBig.png" alt="Oh Goodness..." style="margin-left: auto; margin-right: auto; display: block; border: 5px solid rgb(255, 255, 255);">
         
-        <p> To Be Written </p>
+        <div class="explanation">
+            <p>
+            In the previous section we briefly mentioned this idea of "Big O Notation" and time complexity. When analyzing an algorithm, we need to have some metric to determine its 
+            efficiency. Right away you may think we should run the algorithms on a fake set of data and compare the time it takes to run. The issue is that different machines will run the 
+            same algorithm at different speeds. A cheap chromebook may need a whole day to finish a process that a supercomputer could finish in seconds. If this is not a viable 
+            metric, then what is? Another thing we need to consider is that we can have all kinds of data fed to these algorithms. In order to properly assess an algorithm, we must 
+            consider the various sizes and types of data that will be used.
+            </p>
+        
+            <p>
+            There are two different metrics that we can analyze: the amount of steps the algorithm takes to reach completion, and the amount of memory needed to reach completion. What 
+            Big-O notation tells you isn't the exact amount of space or steps needed to complete an algorithm, but rather what is the maximum rate those values increase relative to the 
+            size of the input.  
+            </p>
 
-        <p> <a href="Sorts.html">Last Page</a> <a href="">Next Page</a> </p>
+            <p>
+            The following values are common notational values: 
+            </p>
+
+            <ul>
+                <li><b>O( 1 )</b> - Constant Time; no matter the input size this algorithm will always require the same amount of resources. Accessing a value in an array, for instance.</li>
+                <li><b>O( log n )</b> - Logarithmic Time; the amount of required resources for this algorithm grows very slowly based on the input. Binary search for instance.</li>
+                <li><b>O ( n )</b> - Linear Time; every new input at most adds a constant value to the resource requirements. Searching through an array by going through each element one by one for instance.</li>
+                <li><b>O( n log n )</b> - n log n time; required resources grows rather quickly for every new input. This is the best possible time for comparison sorts.</li>
+                <li><b>O( n^2 )</b> - Exponential Time; the time requirements grow rapidly for every new input. AVOID THIS IF POSSIBLE. Bubble sort for instance.</li>
+                <li><b>O( n! )</b> - Factorial Time; AVOID THIS AT ALL COSTS. Inefficient brute-forcing can often lead to this time complexity. For even relatively small datasets this kind of algorithm could take a very long time.</li>
+            </ul>
+
+            <p> 
+            An interesting fact to keep in mind is that while something like O(n^2) is horrendous for big datasets, it could theoretically be more efficient than an algorithm with O(1) 
+            time for small datasets. It all depends on the initial cost and implementation. Big O Notation only gives a general upper bound on time complexity.
+            </p>
+        </div> 
+
+        <p>at some point i will add a demonstration here</p>
+
+        <p> <a href="Sorts.html">Last Page</a> <a href="Searching.html">Next Page</a> </p>
     </body>
 </html>
