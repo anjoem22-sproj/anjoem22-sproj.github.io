@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>The STEM Zone</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300&display=swap" rel="stylesheet">
+        <link href="../../formatting.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
+
+        <script src="../../p5.js library/p5.js"></script>
+        <script src="../../p5.js library/p5.sound.js"></script>
+
+        <script src="QuickSort.js"></script>
+    </head>
+
+    <body>
+
+        <div class="titlebar">
+            <img src="../../sort.png" width="100" height ="100" style="padding:10px 30px 0px 10px; float:left;"/>
+            <h1>Sorting Algorithms</h1>
+            <p>Marvel at the elegance of bogosort</p>
+        </div>
+
+        <a href="../../index.html">HOME</a>
+
+        <h1 style="text-align: center;"> Quicksort</h1>
+
+        <div class="explanation">
+            <p> 
+            After looking at the past sorting algorithms, the common issue is that they are really quite slow and inefficient. These two sorts utilize a different technique 
+            with the aim of efficiency. They utilize a "divide and conquer" method for their sorts. These algorithms break the unsorted data into smaller and smaller chunks that 
+            are more easy to sort. These sorting algorithms combine these smaller chunks together then uses the same method of sorting again. Ultimately this has the effect of minimizing 
+            comparisons in a dataset and thus improving efficiency. 
+            </p>
+        </div>
+
+        <div class="explanation">
+            <p> 
+            First, we should talk about quick sort.
+            </p>
+
+            <ol> 
+                <li> If there are no elements in this array, we are finished</li>
+                <li> We pick a "pivot" in the array. This could be the first, middle, final, or a random position in the array</li>
+                <li> All values are compared to this value. The smaller values go to the left of the pivot and greater values to the right</li>
+                <li> Repeat steps 1-3 for the segement of the array to the left of the pivot and the segment to the right</li>
+            </ol>
+
+            <p> 
+            Since this process repeats onto smaller and smaller segments of an array, this algorithm works rather well using recursion. If you are unaware about recursion, that is 
+            when an algorithm repeatedly calls itself to complete a task. There must be a base case for this algorithm or else it will continue forever, and for this sort that is when 
+            there are no elements in the segment of the array.
+            </p>
+        </div>
+
+        <div id="quicksort" style="height: 400px;"> 
+
+        </div>
+
+        <div class="explanation">
+            <p> 
+            On the next page we will talk about merge sort.
+            </p>
+        </div>
+
+        <p> <a href="Sorts.html">Last Page</a> <a href="MergeSort.html">Next Page</a> </p>
+    </body>
+</html>

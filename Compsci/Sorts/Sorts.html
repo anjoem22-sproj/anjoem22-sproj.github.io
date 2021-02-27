@@ -15,7 +15,6 @@
         <script src="../../p5.js library/p5.sound.js"></script>
 
         <script src="BubbleSort.js"></script>
-        <script src="MergeSort.js"></script>
     </head>
 
     <body>
@@ -112,119 +111,13 @@
         </div>
 
         <img src="Demonstration.png" alt="Left shows selection where red numbers are swapped. Right shows insertion where green letters are sorted" style="margin-left: auto; margin-right: auto; display: block;">
-
-        <h1 style="text-align: center;"> Quicksort and Mergesort</h1>
-
+       
         <div class="explanation">
             <p> 
-            After looking at the past sorting algorithms, the common issue is that they are really quite slow and inefficient. These two sorts utilize a different technique 
-            with the aim of efficiency. They utilize a "divide and conquer" method for their sorts. These algorithms break the unsorted data into smaller and smaller chunks that 
-            are more easy to sort. These sorting algorithms combine these smaller chunks together then uses the same method of sorting again. Ultimately this has the effect of minimizing 
-            comparisons in a dataset and thus improving efficiency. 
+                On the next page, we will discuss how quicksort works.
             </p>
         </div>
 
-        <div class="explanation">
-            <p> 
-            First, we should talk about quick sort.
-            </p>
-
-            <ol> 
-                <li> If there are no elements in this array, we are finished</li>
-                <li> We pick a "pivot" in the array. This could be the first, middle, final, or a random position in the array</li>
-                <li> All values are compared to this value. The smaller values go to the left of the pivot and greater values to the right</li>
-                <li> Repeat steps 1-3 for the segement of the array to the left of the pivot and the segment to the right</li>
-            </ol>
-
-            <p> 
-            Since this process repeats onto smaller and smaller segments of an array, this algorithm works rather well using recursion. If you are unaware about recursion, that is 
-            when an algorithm repeatedly calls itself to complete a task. There must be a base case for this algorithm or else it will continue forever, and for this sort that is when 
-            there are no elements in the segment of the array.
-            </p>
-        </div>
-
-        <p>at some point there will be a demonstration placed here</p>
-
-        <div class="explanation">
-            <p> 
-            Next, we should talk about merge sort.
-            </p>
-
-            <ol> 
-                <li>If there is only one element in this array, we stop</li>
-                <li>We split the array into two seperate halves and run this algorithm on the new halves</li>
-                <li>A new array is created where we will recombine the two halves</li>
-                <li>The first value in both arrays is compared and the smaller value is moved to the end of the new array</li>
-                <li>The previous step is repeated until all elements in both halves are combined</li>               
-            </ol>
-
-            <p> 
-            Again, this algorithm utilizes recursion very effectively. While the steps in this process were written in one list, in reality there are two seperate processes. 
-            One process splits the array into small pieces and the other merges them back together. 
-            </p>
-        </div>
-
-        <div id="mergesort" style="height: 400px;"> 
-
-        </div>
-
-        <div class="explanation">
-            <p>
-            Both of these algorithms on average have a time complexity of O(n log n), which is significantly better than all of the aforementioned sorts. An important question then 
-            is which algorithm should be used for a given dataset? The answer to this question can differ based upon what data you are sorting. Quicksort at its worst can take as 
-            long as bubblesort in terms of time complexity. Mergesort, however, requires the use of extra memory which could be problematic if the device being used has limited space. 
-            In certain circumstances and in particular for large datasets, there are actually algorithms even faster than these two. Those will be covered in the next section.
-            </p>
-        </div>
-
-        <h1 style="text-align: center;"> Miscellaneous Sorts </h1>
-
-        <div class="explanation"> 
-            <p>  
-            At last, we will discuss Bucket Sort. In theory, this algorithm can have a time complexity of O(n + k). That means for incredibly large datasets, this algorithm will have 
-            a linear growth in time. In order to effectively utilize this sort, the data should be uniformly distributed.
-            </p>
-
-            <p>
-            We first create a certain number of "buckets" based on the range of elements in our dataset. Each of these buckets is filled with values within certain ranges.  
-            </p>
-
-            <p>
-            For instance, if we have data ranging from 0-100, we may make 10 "buckets". The first value would take values from 0-9, the second from 10-19, the third from 20-29, etc. 
-            </p>
-
-            <p>
-            In each bucket we sort them using some other sorting algorithm, such as quicksort or insertion sort. Once all buckets are sorted, they are combined back together in order.
-            </p>
-
-            <p> 
-            Of course there are other non-comparison sorts like radix sort, counting sort, and much more. If you are curious, I advise you to do research into them. It may seem that 
-            these algorithms are incredible, but they have a major downside. Depending on the kind of data, that value for k could be incredibly high. This means that for some datasets, 
-            even bubblesort would be a better alternative. These algorithms may also have memory requirements that may not be optimal for the machine doing the sorting. 
-            They also have certain prerequisites for their functionality at all. Ultimately, you must consider what kind of data and machine you have and use the best algorithm 
-            for that situation.
-            </p>
-        </div>
-        
-        <h1 style="text-align: center;"> Want to Learn More?</h1>
-
-        <div class="explanation"> 
-            <p>
-            There are countless algorithms to learn about, and if you have a particularly curious mind you may want to learn more. The list provided below could be useful, as these 
-            websites have been really useful for me.
-            </p>
-
-            <ul>
-                <li><a href="https://www.geeksforgeeks.org/">GeeksforGeeks</a> - this website has all kinds of computer science information, and their explanations are rather good.</li>
-                <li><a href="https://www.programiz.com/dsa">Programiz</a> - similar to GeeksforGeeks, this website has great explanations, graphs, and code examples in various languages.</li>
-                <li><a href="https://www.freecodecamp.org/news/sorting-algorithms-explained-with-examples-in-python-java-and-c/">FreeCodeCamp</a> - again, another great computer science resource.</li>
-                <li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm">Wikipedia</a> - you may not be able to use this source for a research paper, but it is still useful. The content on wikipedia 
-                can be rather dense and hard to read, but it excels at giving a multitude of links to various computer science topics</li>
-                <li><a href="https://www.youtube.com/watch?v=kPRA0W1kECg">A Fun Video</a> - this video shows various algorithms in action. It is rather mesmorizing, but be warned that if you use Youtube you will be recommended countless other similar videos.</li>
-                
-            </ul>
-        </div>
-
-        <p> <a href="IntroGame.html">Last Page</a> <a href="O-Notation.html">Next Page</a> </p>
+        <p> <a href="IntroGame.html">Last Page</a> <a href="QuickSort.html">Next Page</a> </p>
     </body>
 </html>
