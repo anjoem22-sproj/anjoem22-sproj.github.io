@@ -161,7 +161,7 @@ function begin_sim() {
 }
 
 function sort_stage() {
-  if ((millis() - t0) >= 1000) {
+  if ((millis() - t0) >= 500) {
     t0 = millis();
     
     if (segments.length == num_values) {
