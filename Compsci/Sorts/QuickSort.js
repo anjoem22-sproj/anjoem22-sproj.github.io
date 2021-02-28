@@ -18,7 +18,9 @@ var action;
 
 function setup() {
   var cnv = createCanvas(800, 400);
-  
+  cnv.parent("quicksort");
+  cnv.center("horizontal");
+
   colorMode(HSB);
   text_color = color(170,10,240);
   
