@@ -40,24 +40,77 @@
 
         <div class="explanation">
             <p>
-                
+                The first concept we will cover is rather simple. In your exploration of sorts you may hear of the term "in-place". Upon searching about it, the language used 
+                (at least in my opinion) seems rather confusing. All it means to be in-place is that the only memory you use is minimal and only to manipulate the original data.
             </p> 
+
+            <p>
+                For instance, say you have a list of 10,000 random numbers (potentially some values being the same). Your computer's memory is limited by your 1000 chrome tabs running at the same 
+                time (and they must remain open or else your entire plan will fail). If your computer needs to make space in memory for 10,000 new numbers, it may crash altogether. 
+                That would close every tab at once, which is an outcome you would really like to avoid. Something like merge sort is really bad in this case. Merge sort needs to make 
+                many smaller arrays in order to sort the original data resulting in a new array. Bubble sort, although slow, can easily move values in this array without taking much space 
+                in memory. It merely creates a few variables for comparisons and moves the original data around until it is sorted.
+            </p> 
+
+            <p>
+                Something like mergesort is normally not in-place, but there actually are implementations where it is. Unfortunately it usually comes with a severe performance loss unless 
+                implemented extremely efficiently. Most comparison sorts are in-place, but something like radix sort usually isn't.
+            </p>
         </div>
 
         <h2 style="text-align: center;"> Sort Stability </h2>
 
         <div class="explanation">
             <p>
-                
+                Sort stability is another important concept that may not seem important at first. In a stable sort, if two items have the same value, the order of their values is preserved. 
+                In an array of integers this isn't really useful, since two integers with the same value are essentially the same. With more complex data, like an array of students, this 
+                may be more important. Suppose you sort an array of students by GPA, then later sort the same students but instead by their first names. With a stable sort, students with the 
+                same first name would be ordered by their GPA. In an unstable sort, students would still be ordered by name but those with the same name may have unordered GPAs. 
             </p> 
+
+            <p>
+                Most sorting algorithms mentioned in this website are usually stable by default and almost any unstable sort has stable variants. Something like quick sort is usually 
+                unstable, but merge sort is usually stable.
+            </p>
         </div>
 
         <h2 style="text-align: center;"> Esoteric Sorts</h2>
 
         <div class="explanation">
             <p>
-                
+                Finally, lets talk about some humorously designed sorts. All of the aforementioned algorithms are designed to improve efficiency in searching and sorting data. 
+                To create the most absurdly inefficient algorithm, however, is a task equally as interesting (though significanly less useful). These sorts will actually finish 
+                sorting the data in theory, and interestingly enough have actually been somewhat more studied then you may initially suspect.
             </p> 
+                
+            <p> 
+                Bogosort is likely the most cited esoteric sort. It is conceptually simple.
+                <ol>
+                    <li>Shuffle the data</li>
+                    <li>Look through the data and determine if it is sorted</li>
+                    <li>If the data is sorted, stop, otherwise go back to step 1</li>
+                </ol>
+            </p>
+
+            <p>
+                The implementation of this algorithm can actually change quite a bit. The ways you can shuffle data can vary, and selecting a random number is a whole subject of importance 
+                in the computer science world. In theory this sort could be correct right away, making it faster than even bogosort. On average, however, it has the astronomical time 
+                complexity of O(n!). Even for 100 data points, this could run nearly indefinitely before it finishes. 
+            </p>
+
+            <p>
+                Sleepsort is an algorithm somewhere between ingenious and incredibly stupid. In a list of numbers, it first creates a new thread for each value. In each thread 
+                a function is run that causes the thread to wait for a number of seconds equal to the value in the array. After waiting, it either is printed or appended to the end 
+                of another list. Effectively, low values will be displayed much more quickly than high values, therefore putting everything in the correct place. For arrays with 
+                large values, the pause could be incredibly long. For arrays with a lot of values, this sort may not work at all. The time complexity of this sort is hard to determine, 
+                since it depends on how threading works on a given machine.
+            </p>
+
+            <p> 
+                Quite a few silly sorts can also be found <a href="https://stackoverflow.com/questions/2609857/are-there-any-worse-sorting-algorithms-than-bogosort-a-k-a-monkey-sort"> on this thread</a>.
+                My favorite is the idea of miracle sort. It only checks if the data is sorted then does nothing. Background radiation could cause a bit in memory to change from a 0 to a 1. In theory, 
+                this could very slowly change the data in the array until it is sorted miraculously. 
+            </p>
         </div>
 
         <p> <a href="Searching.html">Last Page</a></p>
