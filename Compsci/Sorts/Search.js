@@ -121,9 +121,9 @@ function keyPressed() {
       num_guesses = 0;
       actual_num = floor(random(100)+1);
       input_box = createInput('','number');
-      input_box.position(windowWidth/2 - 80,height/1.5);
+      input_box.position(windowWidth/2 - 80,height/1.5 + 400);
       input_button = createButton('Guess!');
-      input_button.position(windowWidth/2 - 25,height/1.5 + 30);
+      input_button.position(windowWidth/2 - 25,height/1.5 + 430);
       input_button.mousePressed(guess_made);
       gamemode = 2;
     }
