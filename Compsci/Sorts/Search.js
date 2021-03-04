@@ -121,9 +121,9 @@ function keyPressed() {
       num_guesses = 0;
       actual_num = floor(random(100)+1);
       input_box = createInput('','number');
-      input_box.position(windowWidth/2 - 80,height/1.5 + 300);
+      input_box.position(windowWidth/2 - 80,height/1.5 + 200);
       input_button = createButton('Guess!');
-      input_button.position(windowWidth/2 - 25,height/1.5 + 330);
+      input_button.position(windowWidth/2 - 25,height/1.5 + 230);
       input_button.mousePressed(guess_made);
       gamemode = 2;
     }
@@ -143,29 +143,19 @@ function keyPressed() {
         victory_state = 1;
       } else if (keyCode == UP_ARROW) {
         let mid_num = floor((lower_guess+upper_guess)/2)
-        if (lower_guess == mid_num) {
-          victory_state = -1;
-        } 
-
         if (victory_state == 0) {
           num_guesses++;
         }
 
-        lower_guess = mid_num; 
-        if (lower_guess == 99) {
-          lower_guess = 100;
-        } 
+        lower_guess = mid_num + 1; 
       } else if (keyCode == DOWN_ARROW) {
         let mid_num = floor((lower_guess+upper_guess)/2)
-        if (lower_guess == mid_num) {
-          victory_state = -1;
-        } 
-
+      
         if (victory_state == 0) {
           num_guesses++;
         }
 
-        upper_guess = mid_num;
+        upper_guess = mid_num -1;
       }
     } else {
       if (keyCode == ENTER) {
@@ -174,6 +164,10 @@ function keyPressed() {
       }
     }
     
+  }
+
+  if (lower_guess > upper_guess) {
+    victory_state = -1;
   }
   
   if (gamemode == 2) {

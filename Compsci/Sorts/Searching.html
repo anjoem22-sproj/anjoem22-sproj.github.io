@@ -81,9 +81,123 @@
 
         <h2 style="text-align: center;"> Linear Search </h2>
 
+        <div class="explanation">
+            <p>
+                Assuming your data is unsorted and the data structure you are using has an ordered structure (ex. an array rather than a dictionary) then the only real way to 
+                find the position of a value is through a linear search. This means looking through each element one by one until you find a match. Such a search takes O(n) time 
+                complexity. Implementing this is rather straightforward and an example of psuedocode will be provided below.
+            </p>
+        </div>
+
+        <pre>
+            <code>
+    function linear_search(array, value) {
+
+        // a simple loop that traverses the whole array.
+        for (int i = 0; i < array.size; i++) {
+
+            // Once the searched value is found, the index is returned.
+            if (array[i] == value) {
+                return i;
+            }
+        }
+
+        // In order to reach this line of code, the previous loop must not have
+        // found the value requested. The value -1 indicates the value was not found.
+        return -1;
+    }
+            </code>
+        </pre>
+
         <h2 style="text-align: center;"> Binary Search </h2>
 
-        <h2 style="text-align: center;"> Bonus Information </h2>
+        <div class="explanation">
+            <p> 
+                If, instead, an ordered data structure is also sorted, then we can use binary search to more quickly find the value we want. This procedure also requires that 
+                the objects in the data structure can be compared. We start with storing the lowest index (which starts at index 0) and the highest index in the array. We select 
+                the middle value and if it matches the searched value then we return this index. If the searched value is lower than this value, we repeat this process on the lower 
+                half by setting the maximum index to this middle index. If the searched value is higher then we do the same thing but with setting the minimum index to this value. We 
+                repeat this process until we find the searched value or the range of values is zero indicating that the searched value does not exist (in which case we return -1).
+            </p>
+
+            <p>
+                Each step of this process splits the array in half, eliminating those values from being compared. When implemented effectively, this has a time complexity of 
+                O(log(n)) as the maximum number of comparisons only really increases when the size of the array doubles. A psuedocode implementation will be provided below.
+            </p>
+        </div>
+
+        <pre>
+            <code>
+    function binary_search(sorted_array, value) {
+        // We store the lowest, highest, and middle index
+        min_index = 0;
+        max_index = sorted_array.size;
+        midpoint;
+
+        // If min_index is greater than max_index it means the value we are looking for doesn't exist.
+        while (min_index <= max_index) {
+
+            // We write floor here, but really the value must be an integer. In most programming languages
+            // You can do integer division or set the data type to integer.
+            midpoint = floor((min_index + max_index)/2);
+
+            // If the middle value is the proper value, we just return it.
+            if sorted_array[midpoint] {
+                return sorted_array[midpoint];
+
+            } elseif value > sorted_array[midpoint] {
+
+                // Here we set the minimum index to the midpoint and add one to limit the possible indexes 
+                // to the upper half excluding the previous middle value.
+                min_index = midpoint + 1;
+            } else {
+
+                // Same as the last line but for the lower half
+                max_index = midpoint - 1;
+            }
+        }
+
+        // Value does not exist in the array
+        return -1;
+    }
+            </code>
+        </pre>
+
+        <div class="explanation">
+            <p> 
+                This psuedocode utilizes an iterative approach to this sort, but a recursive implementation may be effective as well. Keep in mind that however you implement 
+                an algorithm depends on what you are using it on and what your design goals are.
+            </p>
+        </div>
+
+        <h2 style="text-align: center;"> Miscellaneous Information </h2>
+
+        <div class="explanation">
+            <p>
+                Now you should know more about how to implement sorting algorithms and search algorithms for your future endeavors. While it is useful to learn this information to 
+                understand what works best for your projects, often the code you need has already been written for the language you are using (such as in a library or from stackoverflow).
+            </p>
+
+            <p>
+                Something to keep in mind is that while binary sort is faster with sorted data, you may not need it for a certain environment. For instance, if you are only doing one search 
+                on data that is difficult to maintain order, then it is actually more inefficient to sort the data then search. This is because a linear search takes O(n) time while sorting 
+                often has the best average time of O(n log n). If you need to know the position of multiple values then it may be important to sort the data first.
+            </p>
+
+            <p>
+                Furthermore, if you just need to determine if a value exists in a set of values that doesn't need to be ordered, you may wish to use a hash table. An ideal hash table 
+                has a lookup time of O(1). If you'd like to learn more about hash tables, <a href="https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.htm">click here</a> 
+                or <a href="https://www.geeksforgeeks.org/hashing-data-structure/"> click here</a>. Other data structures such as search trees and linked lists may have other searching methods. 
+                I highly recommend that you look into all kinds of data structures if you have a curious mind.
+            </p>
+        </div>
+
+        <div class="explanation">
+            <p>
+                If you've actually made it this far, then I'd like to thank you for taking the time to go through this website. The next page will have some miscellaneous information 
+                and fun bonus content. It will be a litte more text oriented and all over the place, but hopefully you enjoy it.
+            </p>
+        </div>
 
         <p> <a href="O-Notation.html">Last Page</a> <a href="Extra-Fun.html">Next Page</a> </p>
     </body>
