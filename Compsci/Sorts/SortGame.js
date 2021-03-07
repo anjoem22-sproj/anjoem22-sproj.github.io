@@ -125,7 +125,7 @@ function load_main_menu() {
   text("You are equipped with 10 powerful runes. You are tasked to order the runes in terms of power. Interacting with more than two runes at one time could destroy the whole world! In order to sort the runes, you are permitted to evaluate two runes against eachother and swap their positions. Have fun!", 0.2 * width,90,0.61 * width, 0.5 * height);
   
   textAlign(CENTER);
-  text("PRESS SPACE TO BEGIN",0.5 * width, 0.9 * height );
+  text("PRESS ENTER TO BEGIN",0.5 * width, 0.9 * height );
 }
 
 
@@ -237,7 +237,7 @@ function end_loop() {
 function keyPressed() {
   if (game_state == 0) {
     
-    if (keyCode == 32) {
+    if (keyCode == ENTER) {
       game_setup();
       game_state = 1;
     }
