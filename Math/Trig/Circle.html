@@ -13,6 +13,8 @@
 
         <script src="../../p5.js library/p5.js"></script>
         <script src="../../p5.js library/p5.sound.js"></script>
+
+        <script src="Circle.js"></script>
     </head>
 
 
@@ -26,7 +28,80 @@
 
         <a href="../../index.html">HOME</a>
 
-        <p> Sorry, but there isn't anything here right now. Come back after the sorting section is complete.</p>
+        <h1 style="text-align: center;">Circles and Triangles</h1>
+
+        <div id="circle" style="height: 400px;"> 
+
+        </div>
+
+        <div class="explanation"> 
+            <p> 
+                Trigonometry is a rather vast and well studied field of mathematics. As of now this website may not be incredibly robust in the depth at which it teaches the subject, 
+                however there will be a rather quick overview followed by a series of websites and videos for the curious mind. The demo above shows a circle and how it relates to the 
+                functions known as sine and cosine.
+            </p>
+        </div>
+
+        <h1 style="text-align: center;">What is a Circle?</h1>
+
+        <div class="explanation"> 
+            <p> 
+                The question "what is a circle?" may seem silly. The circle is such a simple and recognizable shape, but as a mathematician we must be able to explicitly define what 
+                it means to be a circle before studying it's properties. Essentially, a circle is a bunch of points the same distance from a given point. More descriptively, a circle 
+                is the set of all points on a given plane that has the same distance from a given point.
+            </p>
+
+            <p>
+                There are a few terms relating to a circle that will be used often here that must be defined. The center of the circle is the point which has the same distance from all 
+                points on the circle. The <b>radius</b> is the distance from the center of the circle to any other point on the circle. The <b>diameter</b> is the distance of a line 
+                segment that starts on one point of the circle, passes through the center, and intersects another point on the circle. The diameter is equal to twice the radius. 
+                The <b>circumference</b> of a circle is the distance travelled when making a full loop around a circle. In other words, if you cut a circle and stretched it out into a line, 
+                the length of that line would be the circumference. <b>pi</b> or <b>π</b> is the ratio of the circle's circumference to its diameter.
+            </p>
+
+            <p>
+                There are two common equations related to a circle. The diameter of a circle can be obtained with the equation 2πr where r is equal to the radius. This makes sense 
+                since π is the ratio between the circumference and diameter while 2r is equal to the diameter. The area of a circle is obtained with πr^2.
+            </p>
+        </div>
+
+        <h1 style="text-align: center;">How is a Circle Related to Triangles?</h1>
+
+        <div class="explanation">
+            <p> 
+                So now you, a curious minded fellow, may see the heading at the top of the page and wonder how triangles have anything to do with circles. Imagine you pick a point on a circle.
+                You could draw one line from the center to this point, meaning you draw the radius. You could also draw a line from the center to the x position of this point. If you connect 
+                the end of this line to the point on the circle, we have created a right triangle as can be seen on the demo on the top of the screen.
+            </p>
+
+            <p>
+                Look at the center of this circle. At this point, two lines meet, and depending on where you picked on the circle, these two lines may be close to parallel or wide apart. The 
+                measure of this seperation is called the angle. Often you will see this measured in degrees from 0-360. This is convienent since 360 can be divided nicely in many different ways. 
+                In a more rigorous setting, however, mathematicians prefer to use radians. 0 degrees is equal to 0 radians while 360 degrees is equivalent to 2π radians. 2π is equal to the 
+                circumference of a circle with a radius of 1. Essentially, radians are a measure of how far along the circumference your chosen point is divided by the circle's radius.
+            </p>
+
+            <p> 
+                No matter where you pick on the circle, you can always create a right triangle in this manner. What it means for this to be a right triangle is that one angle is 90 degrees 
+                (two lines intersect perpendicularly). The line that represents the radius of this circle is the <b>hypotenuse</b>. The other two lines are called the legs of the triangle.
+                What is special about these triangle is that as long as you pick the same angle for the point at the center of two different circles, even if the size of the circle is different, 
+                the ratio between two lines of the triangle will always be the same.            
+            </p>
+        </div>
+
+        <h1 style="text-align: center;">Trig Functions</h1>
+
+        <div class="explanation">
+            <p>
+                Now that we have talked about circles and triangles sufficiently, lets talk about the major trigonometric functions. Remember when I mentioned the ratio of two lines 
+                always being the same? Well these functions are all related to that. The <b>sine</b> function for a given angle will tell you the ratio between the length of the opposite 
+                leg to this angle and the hypotenuse. <b>Cosine</b> is the ratio between the adjascent leg and the hypotenuse. All other trig functions can be composed of these two.
+                <b>Tangent</b> is the ratio of the opposite leg to the adjascent leg ( and is equal to sin(x)/cos(x) ). You can remember all these ratios using the mnemonic SOH CAH TOA.
+                Secant is 1/(cosine), Cosecant is 1/(Sine), and Cotangent is 1/(tangent).
+            </p>
+        </div>
+
+        <p><a href="TrigIntro.html">Last Page</a>  <a href="WhatFor.html" style="text-align:center;"> Next Page </a></p>
     </body>
 
 </html>
