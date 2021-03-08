@@ -92,7 +92,7 @@ class Projectile {
       fill(72*this.type,100,100,transparency);
       stroke(0,0,0,transparency);
       
-      if (transparency >= 1) {
+      if ((millis() - this.time_created) >= this.liveTime + this.fadeTime) {
         this.dead = true;
       }
     } else {

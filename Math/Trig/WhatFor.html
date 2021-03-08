@@ -25,10 +25,85 @@
         <h1 style="text-align: center;">What Do We Use Trig For?</h1>
 
         <div class="explanation">
-
+            <p>
+                Often in school you may wonder why you are learning a certain subject. This page will be devoted to explaining what trigonometry is used for in the real world and why 
+                you should learn about it. In the real world you may not be suddenly asked what sin(π/4) is equal to, but if you have interest in science or mathematics then you will find 
+                a plethora of uses with trigonometry.
+            </p> 
         </div>
 
-        <p><a href="Circle.html">Last Page</a>  <a href="LearnMore.html" style="text-align:center;"> Next Page </a></p>
+        <h2 style="text-align: center;">Games</h2>
+
+        <div class="explanation">
+            <p>
+                It may seem odd, but trigonometry is very useful for developing video games. One of these uses can be seen in the demo on the first page of the trigonometry section of 
+                this website. 
+                
+                Often it is useful to have a line point towards an object on the screen, and that can be achieved using trigonometry. On the demo on the first page, the position 
+                of the mouse is stored as a set of x and y coordinates. I wanted to generate a line from the center of the screen in the direction of the mouse and reuse this angle when shooting 
+                projectiles. This was achieved by using the inverse tangent function with those coordinates as inputs. Furthermore, it is useful to know how far away the mouse is from the center 
+                of the screen and that can also be solved using trigonometry. The distance was calculated using the pythagorean theorem (a^2 + b^2 = c^2) which is a trigonometric identity.
+
+                Using sine we could develop platforms in a platformer that smoothly moves up and down. Trigonometry is often used in figuring out where to look and fire based off of mouse input. 
+                Essentially, any time we need to know the relationship between two positions, and in particular the angle between them, we will need trigonometry.
+
+                If you'd like to learn more about trigonometry in video games, I will provide some links here: 
+                <a href="http://library.clickteam.com/guides-tips/trigonometry-in-gaming/">[1] </a> <a href="https://www.raywenderlich.com/2736-trigonometry-for-game-programming-part-1-2">[2] </a>
+                <a href="https://www.youtube.com/watch?v=DPfxjQ6sqrc">[3]</a>
+            </p> 
+        </div>
+
+        <h2 style="text-align: center;">User Interfaces</h2>
+
+        <div class="explanation"> 
+            <p>
+                When developing a user interface for a program or website, sometimes you want an element to appear on screen. Making it suddenly show on the screen can be jarring, so 
+                you may want to have it smoothly glide onto the screen. This could be done with <a href="http://paulbourke.net/miscellaneous/interpolation/">interpolation</a>, which smoothly transitions something from some condition A to some other 
+                condition B. There are many ways to interpolate, but a very appealing way is to use a sine wave.
+
+                Sine waves begin at 0 when you input 0, and reach a value of 1 when you input π/2 (or 90 degrees). Using this number from 0-1 as a percentage, you could make something 
+                slide smoothly across the screen.
+            </p>
+        </div>
+
+        <h2 style="text-align: center;">Physics</h2>
+
+        <div class="explanation"> 
+            <p>
+                In physics there are countless ways trigonometry is used. Imagine placing a box on a large flat platform. Gravity pulls this box towards the center of the 
+                earth, but the platform it is on prevents it from moving. Now imagine you lift one end of this platform. At some point, the box will begin sliding down the 
+                platform. When the box is perpendicular to the ground, the box simply falls. Clearly, the rate of acceleration of this box changes as you increase the angle 
+                between the ground and the platform. This relationship between the angle and the acceleration can be calculated using trigonometry.
+
+                Trigonometry also can be used when there is simple harmonic motion. Under ideal conditions, the swing of a pendulum or the bounce of a spring can be represented as 
+                a smooth repeating motion. This motion can be modelled using trigonometry. The orbit of planets often can be modelled this way, but there are many more uses for 
+                trigonometry when modelling the orbits of planets. 
+
+                In fact, trigonometry allows us to calculate <a href="http://curious.astro.cornell.edu/about-us/41-our-solar-system/the-earth/orbit/87-how-do-you-measure-the-distance-between-earth-and-the-sun-intermediate">
+                the distance from the earth to the sun</a>!
+            </p>
+        </div>
+
+        <h2 style="text-align: center;">Music</h2>
+
+        <div class="explanation"> 
+            <p>
+                Music involves trigonmetry in a rather indirect way. The sounds we hear are really just waves of air vibrations. Various pitches of sounds can be modelled using 
+                sine waves of various frequencies.
+
+                I will provide a link about the subject matter <a href="https://www.ams.jhu.edu/dan-mathofmusic/sound-waves/">here!</a>
+            </p>
+        </div>
+
+        <h1 style="text-align: center;">Conclusion</h2>
+
+        <div class="explanation">
+            Thank you for making it through this website. My explanations may not be great, but hopefully they were sufficient in peaking your interest and that the provided links were 
+            useful. If you'd like to know where to learn more, there will be a page found on the index of this website called "Learn More". It will have a variety of links for extra educational 
+            resources.
+        </div>
+
+        <p><a href="Circle.html">Last Page</a></p>
     </body>
 
 </html>
